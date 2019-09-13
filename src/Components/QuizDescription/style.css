@@ -1,0 +1,13 @@
+.QuizDescriptionContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
+}
+
+.Description {
+  text-align: start;
+  font-size: 0.75rem;
+  margin-bottom: 2rem;
+}
