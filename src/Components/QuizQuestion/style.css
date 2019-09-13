@@ -1,0 +1,39 @@
+.QuizQuestionContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
+}
+
+.QuestionText {
+  text-align: start;
+}
+
+.ButtonsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.Btn {
+  display: flex;
+  width: 5rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin: 1rem;
+  margin-left: 0rem;
+}
+
+.NoBtn {
+  background-color: #000;
+}
+
+.YesButton {
+  background-color: sandybrown;
+}
+
+.BtnText {
+  margin-right: 1rem;
+}
