@@ -1,0 +1,17 @@
+.ResultContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
+}
+
+.ResultText {
+  text-align: start;
+  margin-bottom: 1rem;
+}
+
+.TryAgainhref {
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
