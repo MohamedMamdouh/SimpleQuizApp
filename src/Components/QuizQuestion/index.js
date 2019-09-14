@@ -79,8 +79,9 @@ const QuizQuestion = ({
 };
 
 QuizQuestion.propTypes = {
-  question: PropTypes.func.isRequired,
-  questionNumber: PropTypes.array.isRequired
+  question: PropTypes.object.isRequired,
+  questionNumber: PropTypes.number.isRequired,
+  onAnswerClick: PropTypes.func.isRequired
 };
 
 export default QuizQuestion;
