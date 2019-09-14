@@ -1,16 +1,35 @@
 import React from 'react';
-import './style.css';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const QuizDescription = () => {
+//Styled Component for Quiz Description Container
+const QuizDescriptionContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
+`;
+
+//Styled component for Description text
+const Description = styled.p`
+  text-align: start;
+  font-size: 0.75rem;
+  margin-bottom: 2rem;
+`;
+
+const QuizDescription = ({ title, description }) => {
   return (
-    <div className="QuizDescriptionContainer">
-      <h1 className="Title">Shit</h1>
-      <p className="Description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's
-      </p>
-    </div>
+    <QuizDescriptionContainer className="QuizDescriptionContainer">
+      <h1>{title}</h1>
+      <Description>{description}</Description>
+    </QuizDescriptionContainer>
   );
+};
+
+QuizDescription.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 };
 
 export default QuizDescription;
