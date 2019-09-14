@@ -1,44 +1,68 @@
 import React from 'react';
-import './style.css';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const result = ['yes', 'no', 'current', undefined];
+// styled component for circles container
+const CirclesContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 2rem;
+  align-items: center;
+  margin-top: 1rem;
+`;
 
-const ProgressCircles = () => {
+// styled component for diffrent circles shape
+const Circle = styled.span`
+  font-size: .75rem;
+  ${props => props.isHighLighted && 'font-size: 1rem;'}
+  ${props => props.isNo && `color: #000;`}
+  ${props => props.isYes && 'color: sandybrown;'}
+`;
+
+// Circle shapes
+const CIRCLES = {
+  answered: '●',
+  current: '〇',
+  notAnswered: '○'
+};
+
+const ProgressCircles = ({ results, currentQuestionIndex }) => {
   return (
-    <div className="CirclesContainer">
-      {result.map((result, i) => {
-        if (result === 'yes') {
-          return (
-            <span key={result + i} className="YesCircle">
-              ●
-            </span>
-          );
+    <CirclesContainer className="CirclesContainer">
+      {results.map((result, i) => {
+        const isCurrentQuestion = i === currentQuestionIndex;
+        if (i === results.length) {
+          return null;
         }
-        if (result === 'no') {
-          return (
-            <span key={result + i} className="NoCircle">
-              ●
-            </span>
-          );
+        let currentCircleShape;
+        if (!!result) {
+          currentCircleShape = 'answered';
+        } else if (!result) {
+          currentCircleShape = 'notAnswered';
+        } else if (isCurrentQuestion) {
+          currentCircleShape = 'current';
         }
-        if (result === 'current') {
-          return (
-            <span key={result + i} className="CurrentCircle">
-              〇
-            </span>
-          );
-        }
-        if (result === undefined) {
-          return (
-            <span key={result + i} className="UndefinedCircle">
-              ○
-            </span>
-          );
-        }
-        return null;
+
+        return (
+          <Circle
+            key={i}
+            isNo={result === 'no'}
+            isYes={result === 'yes'}
+            isHighLighted={isCurrentQuestion}
+          >
+            {CIRCLES[currentCircleShape]}
+          </Circle>
+        );
       })}
-    </div>
+    </CirclesContainer>
   );
+};
+
+ProgressCircles.propTypes = {
+  results: PropTypes.array.isRequired,
+  currentQuestionIndex: PropTypes.number.isRequired
 };
 
 export default ProgressCircles;
