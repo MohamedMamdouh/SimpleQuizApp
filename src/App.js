@@ -68,7 +68,6 @@ const QuizContainer = styled.div`
   border-color: #000;
   margin: 3rem;
   border-style: solid;
-  height: 35vh;
 `;
 
 // Styled Component for the right section of quiz component

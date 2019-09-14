@@ -10,13 +10,12 @@ const QuizQuestionContainer = styled.div`
   align-items: flex-start;
   margin-left: 1vw;
   width: 100%;
-  max-height: 30vh;
 `;
 
 // Styled component for Question Text
 const QuestionText = styled.span`
   text-align: start;
-  height: 25vh;
+  height: 22vh;
 `;
 
 // Styled component for Buttons Container
@@ -80,9 +79,8 @@ const QuizQuestion = ({
 };
 
 QuizQuestion.propTypes = {
-  question: PropTypes.object.isRequired,
-  questionNumber: PropTypes.number.isRequired,
-  onAnswerClick: PropTypes.func.isRequired
+  question: PropTypes.func.isRequired,
+  questionNumber: PropTypes.array.isRequired
 };
 
 export default QuizQuestion;
